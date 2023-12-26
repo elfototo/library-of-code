@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 21</title>
+</head>
+<body>
+
+  <div class="alert block">
+    <p>Сообщение</p>
+  </div>
+
+  <script>
+    let div = document.querySelector('div')
+    div.className = "alert class block" // метод className позволяет изменить название класса
+    for(let name of div.classList) { // метод classList позволяет разбить класс "alert class block" на 3 класса "alert" "class" и "block"
+    console.log(name) // все разбитые classList классы хранятся в переменной name
+    }
+
+    div.classList.add('elem') // метод add Добавляет класс elem к элементу
+    div.classList.remove('block') // метод remove удаляет класс block у элемента
+    div.classList.toggle('block') // если класса не было то добавляет, если класс был - то удаляет
+    div.classList.contains('alert') // метод contains позволяет проверить есть ли у элемента какой то класс
+
+    div.style.color = "black" // метод style.color меняет цвет
+    div.style.width = "300px" // метод style.width меняет ширину. с помощью style можно изменить любое знчение которое есть в css
+    div.style.backgroundColor = promt("цвет", "tomato") // promt создает окно, в котором запрашивает цвет
+  </script>
+</body>
+</html>

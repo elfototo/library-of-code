@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Задание - Календарь</title>
+</head>
+
+<body>
+  <div class="container"></div>
+
+  <style type="text/css">
+    * {
+  font-family: 'Calibri';
+    }
+  .container {
+  max-width: 1200px;
+  display: flex;
+  align-content: center;
+  flex-wrap: wrap;
+  }
+  table {  
+  border-collapse: collapse;
+  margin-bottom: 10px;
+  margin-right: 10px;
+ }
+ caption {
+  text-align: center;
+  padding: 10px 0;
+  background-color: #fff6ce;
+  border: 1px solid black;
+  border-bottom: none;
+}
+td,
+th {
+  border: 1px solid black;
+  padding: 8px;
+  text-align: center;
+  font-size: 18px;
+}
+th {
+  font-weight: bold;
+  background-color: #fff6ce;
+}
+  
+  </style>
+
+  <script>
+    function createCalendar(elem, year, moonth) {
+      elem = document.querySelector(elem)
+
+      let mon = moonth - 1;
+      let d = new Date(year, mon)
+
+      let table = `
+      <div><table>
+        <caption>${moonth}.${year}</caption>
+          <tr>
+            <th>пн</th>
+            <th>вт</th>
+            <th>ср</th>
+            <th>чт</th>
+            <th>пт</th>
+            <th>сб</th>
+            <th>вс</th>
+          </tr>
+          <tr>
+      `;
+        
+      for(let i=0; i<getDay(d); i++) {
+        table += '<td></td>'
+      }
+
+      while(d.getMonth() == mon) {
+        table += '<td>' + d.getDate() + '</td>'
+
+        if(getDay(d) % 7 == 6) {
+          table += '</tr><tr>'
+        }
+        d.setDate(d.getDate()+1)
+      }
+
+      if(getDay(d) !=0) {
+        for(let i=getDay(d); i<7; i++) {
+        table += '<td></td>'
+      }
+      }
+
+      table += '</tr></table></div>' 
+
+      elem.innerHTML += table
+
+      }
+
+    function getDay (date) {
+      let day = date.getDay();
+      if(day == 0) day = 7;
+      return day - 1;
+    }
+
+    let arr = [];
+    
+    for(let i=1; i<=12; i++) {
+        arr += createCalendar('.container', 2021, i)
+    }
+    </script>
+</body>
+
+</html>

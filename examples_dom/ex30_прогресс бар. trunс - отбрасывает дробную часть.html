@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 30 - Таймер</title>
+</head>
+
+<body>
+
+  <div class="timer-progresbar">
+    <div class="timer-progressbar__fill"></div>
+    <div class="timer-progressbar__empty"></div>
+  </div>
+
+  <script>
+    function myTimer(seconds) {
+      let startDate = new Date();
+      let endDate = new Date();
+      endDate = endDate.setSeconds(endDate.getSeconds() + seconds) // установить секунды в скобках - эта же дата + полчить секунды и добавить секунды - такие же как у параметра seconds. Получается теперь переменная имеет дату, котооая отличается на количество секунд, заданное в параметре seconds
+      let leftTime = endDate - startDate // Т.О. мы получаем разницу между этими двумя временами
+      let interval = setInterval(() => { // создаем переменную, в которой устанавливаем интервал
+        let currentDate = new Date() // созадим текущую дату
+        let leftPersent = Math.trunc((endDate - currentDate) / (endDate - startDate) * 100) // считвем сколько процентов осталось. Через метод trunc отбрасываем дробное число
+        let passedPrsent = +(100 - leftPersent)  // создаем переменную - сколько прошло процентов в нашем прогресс баре
+
+        document.querySelector('.timer-progressbar__fill').textContent = passedPrsent + '%'
+        document.querySelector('.timer-progressbar__fill').style.width = passedPrsent + '%' // т.о. ширина установится в процентах относительно родителя
+        document.querySelector('.timer-progressbar__empty').textContent = leftPersent + '%'
+        document.querySelector('.timer-progressbar__empty').style.width = leftPersent + '%'
+
+        if(leftPersent == 0) { // если оставшееся количество процентов = 0 то с помощью clearInterval() завершаем выполнение одного из интервалов
+          clearInterval(interval) 
+          document.querySelector('.timer-progressbar__empty').style.display = 'none' // скрываем один из интервалов
+
+        }
+      }, 1000) // интервал ставим на 1000 милисекунд, то есть на 1 секунду
+    }
+    myTimer(5)
+  </script>
+</body>
+
+</html>

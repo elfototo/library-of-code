@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Пример 5</title>
+</head>
+<body>
+  
+  <h2>Заголовок</h2>
+  
+  <div id="content">
+    <ul class="list">
+      <li class="item">Пункт 1</li>
+      <li class="item">Пункт 2</li>
+    </ul>
+  </div>
+
+  <script>
+    let item = document.querySelector('.item')
+    console.log(item.closest('#content')) // closest  позволяет искать ближайшего родителя, у которого css селекторы будут такими же, 
+     // которые мы передадим в его параметры. Для классов пишем ('.list'), для id - ('#content'). В консоле выводится тег с передаваемым классом либо null
+     console.log(item.closest('.list')) // - для классов
+
+     if(item.closest('h2')!==null) {
+      // если какой то селектор не равен null, то можно с ним что то делать
+     }
+  </script>
+</body>
+</html>

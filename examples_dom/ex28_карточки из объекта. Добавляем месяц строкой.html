@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 28 - Карточки</title>
+</head>
+
+<body>
+  <div class="items"></div>
+
+  <script src="../js/const.js"></script>
+  <script>
+
+for(let i=0; i<people.length; i++) {
+      let item = document.createElement('div') //создаем тег div 
+      item.classList.add('item') // у тега div создаем новый класс item с помощью add метода classList
+      item.innerHTML = `
+      ФИО: ${people[i]["name"]["f"]} ${people[i]["name"]["i"]} ${people[i]["name"]["o"]}<br>
+      Номера телефона: ${people[i]["number"].join(", ")}<br>
+      День рождения: ${people[i]["date"]["d"]} ${month[+people[i]["date"]["m"]]} ${people[i]["date"]["y"]}<br>
+      комната: ${people[i]["room"]}
+      `
+      // номера телефонов используем join чтобы объединить череъ ", " все номера телеонов
+      // день рождения: месяц пишем в виде строки, для этого в массиве month указываем индекс число месяца, для этого прописываем путь через массив People, ставим впереди +, чтобы в результате получилось число
+      document.querySelector('.items').append(item)
+    }
+
+    // теперь перенесем все это в функции, для этого изменим selector и array. ТО есть '.items' и 'people'
+  
+  function createCards(selector, array) {
+    for(let i=0; i<array.length; i++) {
+      let item = document.createElement('div') //создаем тег div 
+      item.classList.add('item') // у тега div создаем новый класс item с помощью add метода classList
+      item.innerHTML = `
+      ФИО: ${array[i]["name"]["f"]} ${array[i]["name"]["i"]} ${array[i]["name"]["o"]}<br>
+      Номера телефона: ${array[i]["number"].join(", ")}<br>
+      День рождения: ${array[i]["date"]["d"]} ${month[+array[i]["date"]["m"]]} ${array[i]["date"]["y"]}<br>
+      комната: ${array[i]["room"]}
+      `
+      // номера телефонов используем joinчтобы объединить череъ ", " все номера телеонов
+      // день рождения: месяц пишем в виде строки, для этого в массиве month указываем индекс число месяца, для этого прописываем путь через массив People, ставим впереди +, чтобы в результате получилось число
+      document.querySelector(selector).append(item)
+    }
+  }  
+
+createCards('.items', people)
+  
+  </script>
+</body>
+
+</html>

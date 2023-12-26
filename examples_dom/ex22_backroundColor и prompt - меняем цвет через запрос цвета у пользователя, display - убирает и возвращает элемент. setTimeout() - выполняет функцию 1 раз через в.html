@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 22</title>
+</head>
+<body>
+
+  <div class="alert">
+    <p>Сообщение</p>
+  </div>
+
+  <script>
+    let div = document.querySelector('div') // Обращаемся к элементу
+    // через стили css меняем что то:
+    div.style.color="black" // меняем цвет 
+    div.style.width="300px" // Меняем высоту width
+    div.style.backgroundColor=prompt("Цвет", "tomato") //через диалоговое окно, вызванное prompt - меняем цвет элемента на тот, который написал пользователь
+    div.style.display = "none" // display в значении "none" скрывает элемент, "" - возвращает элемент
+    setTimeout(()=> div.style.display = "", 3000) // setTimeout() - откладывает выполнение display = ""(возвращение элемента) на 3 секунды
+    console.log(div.style.color) // в консоли показывает black, то есть тот цвет который у нас указан в коде первоначально
+    let style = getComputedStyle(div)
+    console.log(style) // getComputedStyle() - показывает все css свойства элеимента - расчитанные финальные значения для стилей. 
+    // Css стили у нас могут быть записаны на css странице, в js скриптах, в тегах style  в самом файле html, задаваться пользователями. 
+    // И у всех их выполнений есть свои приоритеты.
+    // getComputedStyle() - показывает финальные изменения стилей css
+  </script>
+</body>
+</html>

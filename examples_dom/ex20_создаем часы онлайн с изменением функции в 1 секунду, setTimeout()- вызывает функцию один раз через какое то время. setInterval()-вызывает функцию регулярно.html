@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 20 - Часы</title>
+</head>
+<body>
+
+  <div id="clock"></div>
+
+  <script>
+    function update() {
+      let date = new Date(); // создаем дату 
+      let hours = date.getHours(); // получаем часы
+      let minutes = date.getMinutes(); // получаем минуты
+      let seconds = date.getSeconds(); // получаем секунды
+      if(hours < 10) hours = "0" + hours // если часы меньше 10, то добавояем 0
+      if(minutes < 10) minutes = "0" + minutes
+      if(seconds < 10) seconds = "0" + seconds
+      clock.textContent = `${hours}:${minutes}:${seconds}` //через clock обращаемся к id clock. И устанавливаем шаблонную строку
+    }
+    setInterval(update, 1000) // в setInterval передаем 2 параметра - функцию update и время, через которое будем выполнять эту функцию
+  </script>
+</body>
+</html>

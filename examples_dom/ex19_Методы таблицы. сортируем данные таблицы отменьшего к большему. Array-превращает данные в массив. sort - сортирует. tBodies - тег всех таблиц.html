@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 19 - Сортировка таблицы</title>
+</head>
+
+<table id="table">
+  <tr>
+    <th>Имя</th>
+    <th>Возраст</th>
+    <th>Номер комнаты</th>
+  </tr>
+  <tr>
+    <td>Саша</td>
+    <td>10</td>
+    <td>201</td>
+  </tr>
+  <tr>
+    <td>Маша</td>
+    <td>15</td>
+    <td>100</td>
+  </tr>
+  <tr>
+    <td>Паша</td>
+    <td>11</td>
+    <td>20</td>
+  </tr>
+  <tr>
+    <td>Даша</td>
+    <td>7</td>
+    <td>1</td>
+  </tr>
+</table>
+
+<body>
+  <script>
+    let sortedRows = Array.from(table.rows) // table.rows - позволяет получить все строки таблицы table. А Array.from - превращает все строки id table в массив. 
+    .slice(1) //методы можно записывать со следующей строки. С помощью slice(1) мы показываем что из массива берем все элелменты массива с 1го индекса
+    .sort((rowA, rowB) => {
+      return rowA.cells[2].innerHTML - rowB.cells[2].innerHTML  // метод cells[1] у строки rowA помогает выбрать ячейки. в нашем случае это первая строка "саша - 10" вторая ячейка "10". innerHTML - помогает получить текст
+    }) 
+    table.tBodies[0].append(...sortedRows) // тег tBodies есть у всех таблиц, вызывая его мы обращаемся к таблице. С помощью append вставляем строки массива sortedRows(строки дублироваться не будут). "..." ставим перед массивом sortedRows, так как это массив
+  </script>
+</body>
+
+</html>

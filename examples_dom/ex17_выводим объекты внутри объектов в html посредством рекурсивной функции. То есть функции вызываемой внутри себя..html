@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 17 - Дерево списков</title>
+</head>
+
+<body>
+
+  <script>
+    let data = {
+      "Овощи": {
+        "огурцы": 5,
+        "помидоры": 3
+      },
+      "Фрукты": {
+        "красные": {
+          "клубника": 2,
+          "малина": 4
+        },
+        "зеленые": {
+          "яблоко": 6,
+          "лайм": 2
+        },
+        "желтые": {
+          "лайм": {
+            "мини-лайм": 1,
+            "макси-лайм": 2,
+          }
+        },
+      }
+    }
+  
+  function createUl(obj) {
+    if(!Object.keys(obj).length) // если никакого количества ключей в этом объекте не будет, то мы будем выходить из цикла
+      return
+    let ul = document.createElement('ul') // Если есть ключи, то создаем тег ul
+    for(let key in obj) { // создаем цикл для обхода объектов for in
+      let li = document.createElement('li') // на каждой итереции  Этого цикла будем создавать тег li
+      if(!isNaN(obj[key])) // !isNaN проверяем число ли это
+          li.textContent = key + " " + obj[key] // если число, то к ключю прибавляем значение этого объекта, obj[key] - то етсь наше текущее значение в этой итерации
+        else
+          li.textContent = key // если не число, то для li ставим текст (textContent) - равное значению ключа
+        let childrenUl = createUl(obj[key]) // берем функцию, которую только что создали createUl() - это рекурсивная функция. То есть вызывается внутри себя. и она будет применяться для вложенного внутри объекта объекта obj[key]
+        if(childrenUl) { // делаем проверку по наличию дочерних объектов
+          li.append(childrenUl) // если дочерний объект существует, то через append добавляем в li этот дочерний объект
+        }
+        ul.append(li)// и после этого в элемент ul добавляем элемент li, который только что сгенерировали
+      }
+      return ul
+  }
+  // Теперь после написания фунции, нам нужно сделать так чтобы функция выводилась:
+  function createTree(conteiner, obj) { 
+      document.querySelector(conteiner).append(createUl(obj))// в conteiner через append - добавляем посредством созданной функции объект obj
+    }
+  
+  
+  createTree('body', data) // вставляем нужные параметры, body - куда будем вставлять, data - название объекта
+  </script>
+</body>
+</html>

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 26 - Таблица номеров</title>
+</head>
+
+<body>
+
+  <table></table>
+  
+  <script src="../js/const.js"></script>
+  <script>
+    for(let key in PHONE_NUMBER) { // для обекта используем цикл for in
+      let row = document.createElement('tr') // создаем строку tr
+      row.innerHTML = `<th colspan = "2">${key}</th>` // в tr добавляем заголовок таблицы, colspan - объединяет 2 столбца. Ставим название ключа. Теперь все ключи у нас будут объединяться в 2 ячейки
+      document.querySelector('table').append(row) // обращаемся к table, с append в него добавяем строку
+      for(let i=0; i<PHONE_NUMBER[key].length; i++) { // цикл, PHONE_NUMBER[key] - указываем под каким ключом. length - длина этого ключа, то есть все массивы в нем. i-массив
+        let row = document.createElement('tr') // Создаем строку
+        row.innerHTML = `
+        <td>${PHONE_NUMBER[key][i][0]}</td>
+        <td>${PHONE_NUMBER[key][i][1]}</td>
+        `
+        // Так как две ячейки, то пишем две ячейки td PHONE_NUMBER[key][i][0] - 
+        // td PHONE_NUMBER[key] - ключ
+        // [i] - массив ключа
+        // [0] либо [1] - значение в массиве (их всего 2)
+        document.querySelector('table').append(row)
+      }
+    }
+  </script>
+</body>
+
+</html>

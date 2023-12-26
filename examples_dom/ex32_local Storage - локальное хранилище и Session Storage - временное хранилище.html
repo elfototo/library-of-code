@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 32 - localStorage</title>
+</head>
+
+<body>
+
+  <script>
+
+  // как добавить ключ и значение в local Storage
+  localStorage.setItem('key1', 546)  // используем setItem(ключ, значение) чтобы установить какое то значение в локальное хранилище 
+  localStorage.setItem('key2', "Обычная строка")
+  localStorage.setItem('key3', false)
+
+  // как получить значение и ключ из local Storage
+  console.log(localStorage.getItem('key2')) // С помощью getItem получаем элемент который входи в ключ key2
+  console.log(localStorage.key(0))  // в методе key указываем индекс  ключа
+  сonsole.log(localStorage.length) // чтобы узнать количество ключей в localStorage
+
+  // как удалить ключ из local Storage и полностью очистить local Storage
+  localStorage.removeItem('key1') // с помощью метода removeItem мы можем удалить какой то элелмент (ключ)
+  localStorage.clear() // метод clear очищает полностью локальное хранилище
+
+  //_____________________________________//
+
+
+  localStorage.setItem('key1', 546)   
+  localStorage.setItem('key2', "Обычная строка")
+  localStorage.setItem('key3', false)
+
+  for(let i=0; i<localStorage.length; i++) {
+    let key = localStorage.key(i)
+    console.log(`${key}: ${localStorage.getItem(key)}`)
+  }
+
+  
+  for(let key in localStorage){ // с таким циклом выводятся не только ключи но и свойста и методы localStorage, для этого нужно проверить через if
+    if(!localStorage.hasOwnProperty(key)){ // если не принадлежит конкретно этому прототипу, то пропускаем
+    continue; 
+    }
+    console.log(`${key}: ${localStorage.getItem(key)}`)  
+  }
+ 
+  for(let key of Object.keys(localStorage)) { // с помощью такой записи получим только ключи, прототип не учитывается, поэтому дополнительно if непонадобится
+  console.log(`${key}: ${localStorage.getItem(key)}`)
+  }
+
+  </script>
+</body>
+
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 23</title>
+</head>
+<body>
+
+  <main style="position: relative;" id="main">
+    <div id="example" style="
+      position: absolute; 
+      left: 150px; 
+      top: 120px; 
+      width: 350px; 
+      height: 150px; 
+      border: 10px solid black; 
+      padding: 15px;
+    ">Lorem ipsum dolor sit amet consectetur adipisicing elit. Tenetur pariatur et animi blanditiis sapiente excepturi, aut modi dignissimos nisi veniam eveniet repellendus debitis similique porro non! Doloribus accusantium dolores nobis maxime eaque ut corporis est. Nobis quibusdam voluptatum suscipit accusamus necessitatibus nesciunt animi! Ullam autem eos error dolore adipisci repellendus itaque dolorem quod maxime quasi illum cumque eaque, architecto consequatur recusandae praesentium, consequuntur magni, omnis quam molestias labore. Voluptatibus, laborum sequi aliquid sed amet voluptatum fugit optio ipsam ex quam omnis ea, consequatur est sit explicabo mollitia maiores. Quis suscipit ipsam nisi maiores deserunt consectetur totam dolores et quo expedita?</div>
+  </main>
+
+  <script>
+    console.log(example.offsetParent) // ближайший родитель элемента
+    console.log(example.offsetLeft) // расстояние от левого верхнего угла тега ближайшего родительского элемента (в нашем случае тега main) до нашего элемента div с id="example"
+    console.log(example.offsetTop) // расстояние с верху от ближайшего родителя до элемента
+
+    // Внешняя высота и ширина элемента, включая его рамки:
+    console.log(example.offsetWidth) // высота
+    console.log(example.offsetHeight) // ширина
+
+    // Позволяют получить расстояние от верхнего левого внешнего угла до внутреннего угла:
+    console.log(example.clientLeft) // в нашем случае - получится размер border, то есть 10
+    console.log(example.clientTop)
+
+    // получают ширину и высоту, с учетом ширины, высоту и padding. Но без учета полосы прокрутки:
+    console.log(example.clientWidth)
+    console.log(example.clientHeight)
+
+    // получают ширину и высоту содержимого, учитывая прокрученную невидимую область элемента:
+    console.log(example.scrollWidth)
+    console.log(example.scrollHeight)
+
+    // Получают ширину и высоту прокрученной части элемента:
+    console.log(example.scrollLeft)
+    console.log(example.scrollTop)
+
+    // Все эти метрики 
+  </script>
+</body>
+</html>

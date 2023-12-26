@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 24</title>
+</head>
+<body>
+  <div>
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente 
+    harum consectetur, eum nobis possimus voluptatibus quae velit quam 
+    soluta vitae sequi rem nemo quia vel mollitia aut suscipit corporis 
+    quos quidem cupiditate? Quod minima quasi ipsa, pariatur eaque rem 
+    alias recusandae assumenda libero consequuntur voluptatibus quam, 
+    quibusdam, debitis vitae molestiae cum at corporis delectus soluta. 
+    Sapiente sunt maiores eos aliquid, nobis dicta vitae! Dolorum, rem
+    
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente 
+    harum consectetur, eum nobis possimus voluptatibus quae velit quam 
+    soluta vitae sequi rem nemo quia vel mollitia aut suscipit corporis 
+    quos quidem cupiditate? Quod minima quasi ipsa, pariatur eaque rem 
+    alias recusandae assumenda libero consequuntur voluptatibus quam, 
+    quibusdam, debitis vitae molestiae cum at corporis delectus soluta. 
+    Sapiente sunt maiores eos aliquid, nobis dicta vitae! Dolorum, rem
+     
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente 
+    harum consectetur, eum nobis possimus voluptatibus quae velit quam 
+    soluta vitae sequi rem nemo quia vel mollitia aut suscipit corporis 
+    quos quidem cupiditate? Quod minima quasi ipsa, pariatur eaque rem 
+    alias recusandae assumenda libero consequuntur voluptatibus quam, 
+    quibusdam, debitis vitae molestiae cum at corporis delectus soluta. 
+    Sapiente sunt maiores eos aliquid, nobis dicta vitae! Dolorum, rem
+      
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente 
+    harum consectetur, eum nobis possimus voluptatibus quae velit quam 
+    soluta vitae sequi rem nemo quia vel mollitia aut suscipit corporis 
+    quos quidem cupiditate? Quod minima quasi ipsa, pariatur eaque rem 
+    alias recusandae assumenda libero consequuntur voluptatibus quam, 
+    quibusdam, debitis vitae molestiae cum at corporis delectus soluta. 
+    Sapiente sunt maiores eos aliquid, nobis dicta vitae! Dolorum, rem
+
+    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sapiente 
+    harum consectetur, eum nobis possimus voluptatibus quae velit quam 
+    soluta vitae sequi rem nemo quia vel mollitia aut suscipit corporis 
+    quos quidem cupiditate? Quod minima quasi ipsa, pariatur eaque rem 
+    alias recusandae assumenda libero consequuntur voluptatibus quam, 
+    quibusdam, debitis vitae molestiae cum at corporis delectus soluta. 
+    Sapiente sunt maiores eos aliquid, nobis dicta vitae! Dolorum, rem
+  </div>
+  <script>
+    let elem = document.querySelector('div')
+
+    // Позволяeт увидеть высоту и ширину области браузера, которая видна пользователю
+    console.log(document.documentElement.clientHeight) 
+    console.log(document.documentElement.clientWidth) 
+
+    // Чтобы узнать полную высоту документа с прокрученною частью:
+    let scrollHeight = Math.max(document.body.scrollHeight, 
+    document.body.offsetHeight,
+    document.body.clienttHeight,
+    document.documentElement.scrollHeight,
+    document.documentElement.offsetHeight,
+    document.documentElement.clientHeight)
+    // То значение, которое будет являться максимальным из этих 6ти метрик и будет являться высотой документа
+
+    // Чтобы узнать сколько px было прокручено сверху:
+    console.log(window.pageYOffset)
+    // Чтобы узнать сколько px было прокручено слева:
+    console.log(window.pageXOffset)
+
+    //Метрики для прокрутки px на заданное значение
+    console.log(window.scrollBy(0, 10))
+    //Всегда прокручивает на заданное значение:
+    console.log(window.scrollTo(0, 50))
+
+    // Метод, позволяющий прокрутить к началу элемента:
+    console.log(elem.scrollIntoView(true))
+    
+  </script>
+</body>
+</html>

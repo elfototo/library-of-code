@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 31 - Генератор названий</title>
+</head>
+
+<body>
+
+  <script>
+    let words1 = ["Непобедимый", "Визжащий", "Реальный", "Скоростной", "Экцентричный", "Кодовый", "Прожорливый", "Догадливый", "Гениальный", "Разрушительный", "Растерянный", "Торопливый", "Вопрошающий", "Космический", "Динамичный", "Паникующий", "Задумчивый", "Загадочный", "Рекордный", "Непонимающий", "Ультрафиолетовый", "Читающий", "Озорной", "Тормозной", "Волшебный", "Хардовый", "Тычущий", "Внимательный", "Криповый",];
+    let words2 = ["Мозг", "Везунчик", "Повелитель", "Красавчик", "Печенька", "Тормоз", "Динозавр", "Индеец", "Экстрасенс", "Цыпленок", "Решала", "Ураган", "Взломщик", "Эрудит", "Сыщик", "Крушитель", "Паникер", "Шутник", "Обуза", "Капитан", "Ботаник", "Гриб", "Зомби", "Котик", "Ведьмак", "Храбрец", "Мастер", "Король",];
+
+    function allRandomNames(arr1, arr2) {
+      let result = [];
+      for(let i=0; i<arr1.length; i++) {
+        for(let j=0; j<arr2.length; j++) {
+          result.push(`${arr1[i]} ${arr2[j]}`) // с помощью push в массив result добавляем через шаблонную строку arr1 И arr2 с индексами из условия цикла
+        }
+      }
+      return result // после того как мы запушали все элементы в массив - мы возвращаем этот массив result
+    }
+
+    let allNames = allRandomNames(words1, words2)
+
+    let item = document.createElement('div')
+    item.classList.add('menu_link')
+
+    setInterval(() => {
+      item.textContent = allNames[Math.floor(Math.random() * allNames.length)] // сгенерируем случайное число у умножим на длину массива. т.о мы сгенерируем число от 1 до 812, так как в массиве 812 элементов. так как число дробное, то мы его с помощью floor округляем
+      document.body.append(item)
+    }, 2000)
+
+    // for(let i=0; i<allNames.length; i++) {
+    //   let item = document.createElement('div')
+    //   item.classList.add('menu_link')
+    //   item.textContent = allNames[i]
+    //   document.body.append(item)
+    // } можно вывести на экран через массив
+  </script>
+</body>
+
+</html>

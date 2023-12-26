@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="../css/style.css">
+  <title>Пример 12</title>
+</head>
+<body>
+  <p>Разделитель</p>
+  <hr>
+  <script>
+    let div = document.createElement('div') // метод createElement создает тег div
+    div.className = "alert"
+    div.innerHTML = '<p>Важное сообщение в конце тега</p>'
+    document.body.append(div) // метод append добавляет тег div В САМЫЙ КОНЕЦ тега body
+
+    let div1 = document.createElement('div')
+    div1.className = "alert"
+    div1.innerHTML = '<p>Важное сообщение в начале тега</p>'
+    document.body.prepend(div1) // метод prepend добавляет тег div В НАЧАЛО тега body
+
+    let div2 = document.createElement('div')
+    div2.className = "alert"
+    div2.innerHTML = '<p>Сообщение перед тегом</p>'
+    document.body.before(div2) // метод before добавляет тег div ПЕРЕД тегом body
+
+    let div3 = document.createElement('div')
+    div3.className = "alert"
+    div3.innerHTML = '<p>Сообщение после тега</p>'
+    document.body.after(div3, document.querySelector('hr')) // метод before добавляет тег div ПЕРЕД тегом body. через запятую перечисляем вставляемые теги
+
+    let p = document.createAttribute('p')
+    p.textContent = "Текст для замены тега div3!" 
+    div.replaceWith(p) // метод replaceWith заменяет тег div на p
+
+  </script>
+</body>
+</html>
